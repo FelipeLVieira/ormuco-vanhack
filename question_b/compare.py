@@ -1,23 +1,20 @@
 #!/usr/bin/env python
-from decimal import *
+from util.util import try_float
 
 
-# Method to compare two inputs
+# Method to receive two inputs, try to parse to a decimal number
+# and compare them, returning
 def which_is_greater(input1, input2):
-    input1_dec = try_decimal(input1)
-    input2_dec = try_decimal(input2)
+    input1_float = try_float(input1)
+    input2_float = try_float(input2)
 
-    if input1_dec > input2_dec:
-        return input1_dec
-    elif input2_dec < input1_dec:
-        return input2_dec
+    if not input1_float or not input1_float:
+        print("Can't compare these parameters.")
+        return
+
+    if input1_float > input2_float:
+        return print(input1_float, " is greater")
+    elif input2_float > input1_float:
+        return print(input2_float, " is greater")
     else:
-        return input1_dec
-
-
-# Try to convert a value to Decimal
-def try_decimal(value):
-    try:
-        return Decimal(value)
-    except ValueError:
-        return value
+        return print("Both numbers are equal")

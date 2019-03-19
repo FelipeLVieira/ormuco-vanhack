@@ -4,16 +4,7 @@ import unittest
 
 from question_c.data import Data
 from question_c.cache import LRUCache
-
-
-def generate_data(n=5):
-    users = []
-    for i in range(1, n + 1):
-        username = 'user{}'.format(i)
-        email = '{}@gmail.com'.format(username)
-        user = Data(username, email)
-        users.append(user)
-    return users
+from util.util import generate_data
 
 
 class TestCache(unittest.TestCase):
