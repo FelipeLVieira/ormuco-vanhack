@@ -11,7 +11,10 @@ class LRUCache:
         self.cache = OrderedDict()
         self.region = region
         self._head = None
-        self._tail = None
+
+    @property
+    def lru(self):
+        return self._head
 
     def put(self, data):
         ts = time.time()
@@ -32,21 +35,15 @@ class LRUCache:
             lru_data.delete(self.region)
             del self.cache[self._head]
             self._head = list(self.cache.keys())[0]
-        self._tail = data.key
 
     def get(self, key):
         if self.in_cache(key):
             data, _ = self.cache[key]
             del self.cache[key]
             self.cache[key] = (data, time.time())
-            self._tail = key
             data.read()
             return data
         raise KeyError('key {} not in cache'.format(key))
-
-    @property
-    def lru(self):
-        return self._head
 
     def in_cache(self, key):
         return key in self.cache
@@ -62,7 +59,6 @@ class LRUCache:
             if len(self.cache) == 1:
                 del self.cache[self._head]
                 self._head = None
-                self._tail = None
                 return
             nxt = list(self.cache.keys())[1]
             del self.cache[self._head]
