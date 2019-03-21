@@ -1,5 +1,7 @@
 #!/usr/bin/env python
-from util.util import try_float
+# -*- coding: utf-8 -*-
+
+from util.helper import try_float
 
 # Method to validate if two lines are overlapping
 def are_overlapping(x1, x2, x3, x4):

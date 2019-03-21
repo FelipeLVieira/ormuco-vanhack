@@ -1,10 +1,11 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import time
 import unittest
 
-from question_c.data import Data
-from question_c.lru_cache import LRUCache
-from util.util import generate_data
+from app.question_c.lru_cache import LRUCache
+from util.helper import generate_data
 
 
 class TestCache(unittest.TestCase):

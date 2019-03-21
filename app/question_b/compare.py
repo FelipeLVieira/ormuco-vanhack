@@ -1,5 +1,7 @@
 #!/usr/bin/env python
-from util.util import try_float
+# -*- coding: utf-8 -*-
+
+from util.helper import try_float
 
 
 # Method to receive two inputs, try to parse to a decimal number

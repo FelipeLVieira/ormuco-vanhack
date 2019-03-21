@@ -1,6 +1,9 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import unittest
 
-from question_b.compare import which_is_greater
+from app.question_b import which_is_greater
 
 
 class TestCompare(unittest.TestCase):

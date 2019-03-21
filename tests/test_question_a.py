@@ -1,6 +1,9 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import unittest
 
-from question_a.overlap import are_overlapping
+from app.question_a import are_overlapping
 
 
 class TestOverlap(unittest.TestCase):

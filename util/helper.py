@@ -1,4 +1,8 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+from app.question_c import Data
+
 def try_float(value):
     try:
         return float(value)
