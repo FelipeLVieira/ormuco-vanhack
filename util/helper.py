@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from app.question_c import Data
+from app.question_c.data import Data
+
 
 def try_float(value):
     try:

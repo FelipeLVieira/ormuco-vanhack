@@ -3,7 +3,7 @@
 
 import unittest
 
-from app.question_a import are_overlapping
+from app.question_a.overlap import are_overlapping
 
 
 class TestOverlap(unittest.TestCase):

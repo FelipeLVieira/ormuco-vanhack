@@ -20,7 +20,7 @@ class ConsistentHash:
     def get_machine(self, key):
         # Returns the number of the machine which key gets sent to.
         h = generate_hash(key)
-        # edge case where we cycle past hash value of 1 and back to 0.
+        # Edge case where we cycle past hash value of 1 and back to 0.
         if h > self.hash_tuples[-1][2]:
             return self.hash_tuples[0][0]
         hash_values = map(lambda x: x[2], self.hash_tuples)
@@ -29,5 +29,5 @@ class ConsistentHash:
 
 
 def generate_hash(key):
-    # my_hash(key) returns a hash in the range [0,1).
+    # generate_hash(key) returns a hash in the range [0,1).
     return (int(hashlib.md5(key).hexdigest(), 16) % 1000000) / 1000000.0

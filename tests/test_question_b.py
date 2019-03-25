@@ -3,7 +3,7 @@
 
 import unittest
 
-from app.question_b import which_is_greater
+from app.question_b.compare import which_is_greater
 
 
 class TestCompare(unittest.TestCase):

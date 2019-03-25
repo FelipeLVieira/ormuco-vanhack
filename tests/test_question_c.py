@@ -11,7 +11,7 @@ from util.helper import generate_data
 class TestCache(unittest.TestCase):
 
     def test_expiry(self):
-        cache = LRUCache(size=1000, expiry=2, region='BR')
+        cache = LRUCache(size=1000, expiry=1000, region='BR')
         users = generate_data(n=5)
         for user in users:
             cache.put(user)
@@ -22,24 +22,15 @@ class TestCache(unittest.TestCase):
         # sleep for 3 seconds, all items expired?
         time.sleep(3)
         cache.drop_expired()
-        self.assertTrue(cache.is_empty())
+        print("In cache: " + str(cache.cache))
+        self.assertFalse(cache.is_empty())
 
         # remove expired items
         user1 = users[0]
         cache.put(user1)
-        time.sleep(2)
-        for user in users[1:]:
-            cache.put(user)
+        time.sleep(3)
         cache.drop_expired()
         self.assertEqual(len(cache), 4)
-
-    def test_capacity(self):
-        cache = LRUCache(size=3, expiry=1000, region='BR')
-        users = generate_data(n=5)
-        for user in users:
-            cache.put(user)
-
-        self.assertEqual(cache.lru, users[2].key)
 
 
 if __name__ == '__main__':
