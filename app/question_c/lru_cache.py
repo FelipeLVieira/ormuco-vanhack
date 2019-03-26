@@ -57,7 +57,7 @@ class LRUCache:
         if self.is_empty():
             return
         head_ts = self.cache[self._head][1]
-        while time.time() - head_ts > self.expiry:
+        while time.time() - head_ts < self.expiry:
             if len(self.cache) == 1:
                 del self.cache[self._head]
                 self._head = None
